@@ -1,0 +1,41 @@
+<body class="index">
+    <?php //echo $this->partial('partials/feedback.phtml'); ?>
+    <div id="wrapper">
+
+        <?php 
+            echo $this->partial('partials/header.phtml', 
+                          array( 'lang' => $this->lang , 
+                                 'constants' => $this->constants,
+                                 'uri' => $this->uri));  
+        ?>
+        <div id="u_home_header">
+            <img src="/img/u.jpg" alt="" />
+        </div>
+        <div id="content" class="home">
+            <table>
+            <tr>
+                <td>
+                    <div class="info">
+                        <br/>
+                        <h1><?php echo $this->constants['hello_text_' . $this->lang][0]; ?></h1>
+                        <?php echo $this->constants['home_page_text_' . $this->lang][0]; ?>
+                        <h1><?php echo $this->constants['our_labs_' . $this->lang][0]; ?></h1>
+                    </div>
+                    <div class="labs">
+
+                                <?php 
+                                    foreach ($this->labs as $lab) {
+                                        echo $this->partial('partials/lab.phtml', 
+                                                      array('lab' => $lab, 'lang' => $this->lang));
+                                    }  
+                                 ?>
+
+                    </div>
+               </td>
+            </tr>
+            </table>
+        </div>
+        <?php echo $this->partial('partials/footer.phtml'); ?>
+
+    </div>
+</body>

@@ -1,0 +1,86 @@
+<body>
+<?php //echo $this->partial('partials/feedback.phtml'); ?>
+<div id="wrapper">
+
+	<?php 
+            echo $this->partial('partials/header.phtml', 
+                          array( 'lang' => $this->lang , 
+                                 'constants' => $this->constants,
+                                 'uri' => $this->uri)); 
+	?>
+	<div id="content">
+		<a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>" id="back"><?php echo $this->constants['back_to_home_' . $this->lang][0]; ?></a> 
+		<br/>
+		<br/>
+		<div id="blogHeader"><?php echo $this->constants['blog_title_' . $this->lang][0]; ?></div>
+		<br/>
+		
+		<div id="rss"><?php echo $this->constants['sign_up_' . $this->lang][0]; ?>: 
+			<a href=""><img src="/img/rss1.png"/></a>
+			<a href=""><img src="/img/rss2.png"/></a>
+			<a href=""><img src="/img/rss3.png"/></a>
+			<a href=""><img src="/img/rss4.png"/></a>
+		</div>
+		<div id="search"><form id="search_form" action="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/search/" method="post" ><div id="searchInput"><input id="searchInputField" name="search_query" type="text" value="<?php echo $this->constants['search_' . $this->lang][0]; ?>"/><input id="default_searchInputField" type="hidden" value="<?php echo $this->constants['search_' . $this->lang][0]; ?>"/></div><div id="button"><?php echo $this->constants['find_' . $this->lang][0]; ?></div></form></div>
+		
+		<div id="posts">
+			<?php foreach($this->posts as $post) :?>
+			<div class="post">
+				<div class="date">
+					<span class="day"><?php echo (int)$post['date']['day'];?></span><br/>
+					<span class="month"><?php echo $post['date']['month'];?> <?php echo $post['date']['year'];?></span>
+				</div>
+				<div class="countComments"><?php echo $post['comment_count'];?></div>
+				<div class="title">
+					<a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/post/<?php echo $post['uri'];?>"><?php echo $post['title_' . $this->lang];?></a>
+				</div>
+				<div class="postInfo"><?php echo $this->constants['author_' . $this->lang][0]; ?>: 
+						<?php 
+							$authors = '';
+							foreach($post['authors'] as $author){
+								$authors .= $author['name_' . $this->lang] . ', ';
+							}
+						?>
+						<span class="author">
+							<?php echo substr($authors, 0, strlen($authors) - 2) . ' '; ?>
+						</span> 
+						<?php 
+							$labels = '';
+							foreach($post['labels'] as $label){
+								$labels .= $label['name_' . $this->lang] . ', ';
+							}
+						?> 
+						<span class="labels">
+							<?php echo substr($labels, 0, strlen($labels) - 2) . ' '; ?>
+						</span>
+				</div>
+				<a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/post/<?php echo $post['uri'];?>"><img src="/img/posts/<?php echo $post['uri']?>/<?php echo $post['title_img']?>" class="postImg"/></a>
+				<div class="description">
+					<?php echo $post['desc_' . $this->lang];?>
+				</div>
+				<a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/post/<?php echo $post['uri'];?>" class="details"><?php echo $this->constants['read_' . $this->lang][0]; ?></a><br/>
+			</div>
+			<br/>
+			<?php endforeach; ?>
+		</div>
+		<div id="rightMenu">
+			<div id="rightMenuHeader"><?php echo $this->constants['chapters_title_' . $this->lang][0]; ?>:</div>
+			<br/>
+			<ul class="menu">
+				<?php foreach($this->generalChapters as $chapter):?>
+					<li><a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/chapter/<?php echo $chapter['uri'];?>"><?php echo $chapter['name_' . $this->lang] . ' (' . $chapter['post_count'] . ')'; ?></a></li>
+				<?php endforeach;?>
+			</ul>
+			<br/>
+			<ul class="menu">
+				<?php foreach($this->labChapters as $chapter):?>
+					<li><a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/chapter/<?php echo $chapter['uri'];?>"><?php echo $chapter['name_' . $this->lang] . ' (' . $chapter['post_count'] . ')'; ?></a></li>
+				<?php endforeach;?>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="footer">
+	</div>
+</div>
+</body>

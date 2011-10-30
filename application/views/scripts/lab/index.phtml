@@ -1,0 +1,106 @@
+<body>
+<?php //echo $this->partial('partials/feedback.phtml'); ?>
+<div id="wrapper">
+
+	<?php 
+            echo $this->partial('partials/header.phtml', 
+                          array( 'lang' => $this->lang , 
+                                 'constants' => $this->constants,
+                                 'uri' => $this->uri)); 
+	?>
+	<div id="content">
+		<a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>" id="back"><?php echo $this->constants['back_to_home_' . $this->lang][0]; ?></a> 
+		<br/>
+		<br/>
+		<div id="labHeader"><?php echo $this->labInfo[0]['name']; ?></div>
+		<br/>
+		
+		<div id="posts">
+                   <?php echo $this->labInfo[0]['text_' . $this->lang]; ?>
+                    <br/><br/>
+		</div>
+		<div id="rightMenu">
+			<h2><?php echo $this->constants['services_' . $this->lang][0]; ?>:</h2>
+			<br/>
+            <ul>
+			<?php foreach ($this->labInfo['tasks'] as $task):?>
+				<li><?php echo $task['task_' . $this->lang]; ?></li>
+			<?php endforeach; ?>
+			</ul>
+			<br/>
+			<?php if (!empty($this->labInfo['projects'])): ?>
+				<h2><?php echo $this->constants['works_' . $this->lang][0]; ?>:</h2>
+				<br/>
+				<div class="worksLab">
+					<div class="works">
+						<?php foreach($this->labInfo['projects'] as $project):?>
+							<div class="work" id="<?php echo $project['id']; ?>">
+								<a  class="workImg" href="/img/works/<?php echo strtolower($this->labInfo[0]['name']); ?>/<?php echo $project['id']; ?>.jpg"><img src="/img/works/<?php echo strtolower($this->labInfo[0]['name']); ?>/<?php echo $project['id']; ?>_small.jpg" width="103px" height="103px"/></a>
+								<span class="title"><?php echo $project['title_' . $this->lang]; ?></span>
+								<span class="year"><?php echo $project['year']; ?></span>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div>
+	
+	<div id="footer">
+	</div>
+</div>
+<?php if (!empty($this->labInfo['projects'])): ?>
+	<div id="fade">
+	</div> 
+	<div id="workPreview">
+		<div id="workPreviewClose">
+		</div>
+		<div id="workPreviewImg">
+		
+			<ul id="worksMenu" style="display: none">
+				<li class="active">Лого</li>
+				<li>Поліграфія</li>
+				<li>Сайти</li>
+				<li>Копірайт</li>
+				<li>Відео</li>
+				<li>Порно</li>
+				<li>Пронто</li>
+				<li>Інше</li>
+			</ul>
+
+			<div id="keyboardNav">
+				<span><?php echo $this->constants['navigation_' . $this->lang][0]; ?>: </span>
+				<img src="/img/keyboard.png" />
+			</div>
+			
+			<div class="nextWork" id="">
+			</div>
+				<img id="big_img" src="" />
+			<div class="prevWork" id="">
+			</div>
+
+		</div>
+		<div id="workPreviewInfo">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<div id="whom">
+								<p id="title"></p>
+								<span id="type"><span class="head_work_info"><?php echo $this->constants['work_type_' . $this->lang][0]; ?>: </span><span id="work_info_type"></span></span><br/>			
+								<span id="customer"><span class="head_work_info"><?php echo $this->constants['customer_' . $this->lang][0]; ?>: </span><span id="work_info_customer"></span></span><br/>
+								<span id="task"><span class="head_work_info"><?php echo $this->constants['task_' . $this->lang][0]; ?>: </span><span id="work_info_task"></span></span><br/>
+								<span id="year"><span class="head_work_info"><?php echo $this->constants['year_' . $this->lang][0]; ?>: </span><span id="work_info_year"></span></span><br/>
+							</div>
+						</td>
+						<td>				
+							<div id="who">
+							</div>
+						</td>
+					</tr>
+				<tbody>
+			</table>
+		</div>
+	</div> 
+<?php endif; ?>
+</body>

@@ -1,0 +1,7 @@
+<div class="lab">
+    <h1><a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>lab/<?php echo strtolower($this->lab['name']); ?>"><img src="/img/labs/<?php echo strtolower($this->lab['name']) . '_'; echo $this->lang; ?>.png" /></a></h1>
+    <br/>
+    <?php foreach ($this->lab['tasks'] as $task) :?>
+    <a class="task" href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>lab/<?php echo strtolower($this->lab['name']); ?>">— <?php echo $task['task_' . $this->lang]; ?></a>
+    <?php endforeach; ?>
+</div>

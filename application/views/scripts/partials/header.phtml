@@ -1,0 +1,16 @@
+<div id="header">
+        <div id="logo">
+                <a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>"><div id="u"></div><br/><?php echo $this->constants['header_ubl_' . $this->lang][0]; ?></a>
+        </div>
+        <div id="upMenu">
+                <a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>about"><?php echo $this->constants['header_why_u_' . $this->lang][0]; ?></a>
+                <a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>portfolio"><?php echo $this->constants['header_portfolio_' . $this->lang][0]; ?></a>
+                <a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog"><?php echo $this->constants['header_blog_' . $this->lang][0]; ?></a>
+                <a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>contact"><?php echo $this->constants['header_contacts_' . $this->lang][0]; ?></a>
+        </div>
+        <div id="lang">
+                <a href="/<?php echo $this->uri; ?>"><div id="uk" class="<?php echo ($this->lang == 'ua' ? 'active' : 'pasive');?>">UK</div></a>
+                <a href="/en/<?php echo $this->uri; ?>"><div id="en" class="<?php echo ($this->lang == 'en' ? 'active' : 'pasive');?>">EN</div></a>
+                <span style="display: none" id="act_lang"><?php echo $this->lang; ?></span>
+        </div>
+</div>

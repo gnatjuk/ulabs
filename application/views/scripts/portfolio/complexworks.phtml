@@ -1,0 +1,37 @@
+<body>
+<?php //echo $this->partial('partials/feedback.phtml'); ?>
+<div id="wrapper">
+
+	<?php 
+            echo $this->partial('partials/header.phtml', 
+                          array( 'lang' => $this->lang , 
+                                 'constants' => $this->constants,
+                                 'uri' => $this->uri)); 
+	?>
+	<div id="content">
+		<a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>" id="back"><?php echo $this->constants['back_to_home_' . $this->lang][0]; ?></a> 
+		<br/>
+		<br/>
+		<div id="portfolioHeader"><?php echo $this->constants['portfolio_title_' . $this->lang][0]; ?></div>
+		<br/>
+		<div id="worksNavigation">
+			<span><?php echo $this->constants['what_works_show_' . $this->lang][0]; ?>:</span> 
+			<a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>portfolio/" class="pasiveWorks"><?php echo $this->constants['all_works_' . $this->lang][0]; ?></a>
+			<a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>portfolio/complex-works/" class="activeWorks"><?php echo $this->constants['complex_works_' . $this->lang][0]; ?></a>
+		</div>
+		<br/><br/>
+		<div id="slogan">
+			<?php echo $this->constants['portfolio_text_' . $this->lang][0]; ?>
+		</div>
+		<table>
+			<tr>
+				<td>
+
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="footer">
+	</div>
+</div>
+</body>

@@ -1,0 +1,79 @@
+<body>
+    <?php //echo $this->partial('partials/feedback.phtml'); ?>
+    <div id="wrapper">
+
+        <?php 
+            echo $this->partial('partials/header.phtml', 
+                          array( 'lang' => $this->lang , 
+                                 'constants' => $this->constants,
+                                 'uri' => $this->uri));  
+        ?>
+        <div id="content">
+            <table id="contacts">
+                <tr>
+                    <td>
+                        <a id="back" href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>"><?php echo $this->constants['back_to_home_' . $this->lang][0]; ?></a><br/><br/>
+                          <div class="header"><?php echo $this->constants['contact_title_' . $this->lang][0]; ?></div>
+                          <br/>
+                          <form>
+                              <p style="width: 220px;"><?php echo $this->constants['contact_text_' . $this->lang][0]; ?></p>
+                              <input type="text" value="<?php echo $this->constants['form_name_' . $this->lang][0]; ?>" id="name" class="contactFormField"/>
+                              <input type="hidden" value="<?php echo $this->constants['form_name_' . $this->lang][0]; ?>" id="default_name"/>
+                              <input type="text" value="<?php echo $this->constants['form_company_' . $this->lang][0]; ?>" id="company" class="contactFormField"/>
+                              <input type="hidden" value="<?php echo $this->constants['form_company_' . $this->lang][0]; ?>" id="default_company"/>
+                              <input type="text" value="<?php echo $this->constants['form_email_' . $this->lang][0]; ?>" id="email" class="contactFormField"/>
+                              <input type="hidden" value="<?php echo $this->constants['form_email_' . $this->lang][0]; ?>" id="default_email"/>
+                              <input type="text" value="<?php echo $this->constants['form_phone_' . $this->lang][0]; ?>" id="phone" class="contactFormField"/>
+                              <input type="hidden" value="<?php echo $this->constants['form_phone_' . $this->lang][0]; ?>" id="default_phone"/>
+                              <textarea id="message" class="contactFormField"><?php echo $this->constants['form_message_' . $this->lang][0]; ?></textarea>
+							  <input type="hidden" value="<?php echo $this->constants['form_message_' . $this->lang][0]; ?>" id="default_message"/>
+                              <a href="#" class="send" id="send_button"><?php echo $this->constants['form_submit_' . $this->lang][0]; ?></a>
+                                  <span id="resultSendMessage"></span>
+                                  <br/><br/>
+                          </form>
+                    </td>
+                    <td>
+                          <div class="r">
+                             <table>
+                                  <tr>
+                                      <td height="430">  
+                                        <a id="map" href="#"><img src="/img/contacts/map.jpg" alt=""/></a>
+										<iframe width="532" height="388" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=uk&amp;geocode=&amp;q=%D1%83%D0%BB.+%D0%9F%D0%B0%D0%B2%D0%BB%D0%B0+%D0%9A%D0%BE%D0%B2%D0%B6%D1%83%D0%BD%D0%B0,+4,+%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2,+%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B0&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=48.956293,107.138672&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Pavla+Kovzhuna+St,+4,+L'viv,+L'vivs'ka+oblast,+Ukraine&amp;t=m&amp;ll=49.844569,24.031391&amp;spn=0.021475,0.045576&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=uk&amp;geocode=&amp;q=%D1%83%D0%BB.+%D0%9F%D0%B0%D0%B2%D0%BB%D0%B0+%D0%9A%D0%BE%D0%B2%D0%B6%D1%83%D0%BD%D0%B0,+4,+%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2,+%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B0&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=48.956293,107.138672&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Pavla+Kovzhuna+St,+4,+L'viv,+L'vivs'ka+oblast,+Ukraine&amp;t=m&amp;ll=49.844569,24.031391&amp;spn=0.021475,0.045576&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">Переглянути більшу мапу</a></small>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <p class="tel">
+                                            <i><?php echo $this->constants['call_us_' . $this->lang][0]; ?></i><br /><br />
+                                                    <span class="name"><?php echo $this->constants['director_' . $this->lang][0]; ?> </span><br />
+                                                    <?php echo $this->constants['phone_' . $this->lang][0]; ?><br />
+                                          </p>
+                                          <p class="home">
+                                            <i><?php echo $this->constants['visit_us_' . $this->lang][0]; ?></i><br />
+                                                            <?php echo $this->constants['addr_' . $this->lang][0]; ?>
+                                          </p>
+                                          <p class="mail">
+                                            <i><?php echo $this->constants['write_' . $this->lang][0]; ?></i><br />
+                                            <a id="mailto" href="mailto:<?php echo $this->constants['mail_' . $this->lang][0]; ?>"><?php echo $this->constants['mail_' . $this->lang][0]; ?></a><br />
+                                          </p>
+                                          <p>
+                                            <i><?php echo $this->constants['follow_ua_' . $this->lang][0]; ?></i><br />
+                                            <a href="#" class="t"></a>
+                                            <a href="#" class="f"></a>
+                                            <a href="#" class="b"></a>
+                                            <a href="#" class="r"></a>
+                                            <br />
+                                            <?php echo $this->constants['footer_ubl_' . $this->lang][0]; ?>
+                                          </p>
+                                      </td>
+                                  </tr>
+                              </table>
+                          </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <?php echo $this->partial('partials/footer.phtml'); ?>
+
+    </div>
+</body>

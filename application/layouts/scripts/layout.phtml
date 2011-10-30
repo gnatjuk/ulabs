@@ -1,0 +1,17 @@
+<?php echo $this->doctype() ?>
+<html>
+<head>
+    <?php echo $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8'); ?>
+    <?php echo $this->headTitle(); ?>
+
+    <?php $this->headLink()->appendStylesheet('/css/style.css'); ?>
+    <?php echo $this->headLink() ?>
+    <?php 
+            $this->headScript()->appendFile('/js/scripts.js'); 
+    ?>
+    <?php echo $this->headScript(); ?>
+</head>
+
+    <?php echo $this->layout()->content ?>
+
+</html>
