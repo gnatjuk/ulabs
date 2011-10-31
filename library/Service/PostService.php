@@ -33,7 +33,7 @@ class Service_PostService extends Service_BaseService {
     }
 
     public function getPostList() {
-        $sql = "SELECT * FROM posts WHERE visible = '1'";
+        $sql = "SELECT * FROM posts";
         $stmt = self::getDb()->query($sql);
         return $stmt->fetchAll();
     }
@@ -46,7 +46,11 @@ class Service_PostService extends Service_BaseService {
     
     public function getPostById($id) {
         $where = $this->postTable->getAdapter()->quoteInto('id = ?', $id);
-        return $this->postTable->fetchAll($where)->current()->toArray();
+        if ($this->postTable->fetchAll($where)->current() != null) {
+            return $this->postTable->fetchAll($where)->current()->toArray();
+        } else {
+            return $this->postTable->fetchAll($where)->current();
+        }
     }
     
     public function getAuthorListByPostId($id) {

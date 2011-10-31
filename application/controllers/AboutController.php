@@ -8,8 +8,15 @@ class AboutController extends Controller_BaseController {
      */
     protected $galeryService;
     
+    /**
+    * accessing our session variable
+    * @var type GaleryService
+    */
+    protected $labService;
+    
     public function init(){
         $this->galeryService = new Service_GaleryService();
+        $this->labService = new Service_LabService();
         $this->view->uri = self::getCurrentUri();
     }
     
@@ -21,6 +28,7 @@ class AboutController extends Controller_BaseController {
                                 $this->view->constants['why_u_' . $this->view->lang][0]
                               );
         $this->view->galeries = $this->galeryService->getAllGaleries();
+        $this->view->labs = $this->labService->getLabList();
     }
 }
 

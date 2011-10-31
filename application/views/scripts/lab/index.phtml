@@ -12,24 +12,32 @@
 		<a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>" id="back"><?php echo $this->constants['back_to_home_' . $this->lang][0]; ?></a> 
 		<br/>
 		<br/>
-		<div id="labHeader"><?php echo $this->labInfo[0]['name']; ?></div>
+		<div id="labHeader"><?php echo $this->labInfo[0]['name']; ?></div> <div id="titleLab"><?php echo $this->labInfo[0]['title_' . $this->lang]; ?></div>
 		<br/>
-		
-		<div id="posts">
+		<br/>
+		<div id="posts" class="labPage">
+					<br/>
                    <?php echo $this->labInfo[0]['text_' . $this->lang]; ?>
                     <br/><br/>
 		</div>
+		<div id="links">
+			<div id="button"><?php echo $this->constants['about_services_' . $this->lang][0]; ?></div>
+			<div id="singUp">
+				<a href=""><img src="/img/pdf_ico.png"/></a>
+				<a href=""><img src="/img/docs_16.png"/></a>
+			</div>
+		</div>
 		<div id="rightMenu">
-			<h2><?php echo $this->constants['services_' . $this->lang][0]; ?>:</h2>
+			<h2 class="labHeader"><?php echo $this->constants['services_' . $this->lang][0]; ?>:</h2>
 			<br/>
-            <ul>
+            <ul class="servicesList">
 			<?php foreach ($this->labInfo['tasks'] as $task):?>
 				<li><?php echo $task['task_' . $this->lang]; ?></li>
 			<?php endforeach; ?>
 			</ul>
 			<br/>
 			<?php if (!empty($this->labInfo['projects'])): ?>
-				<h2><?php echo $this->constants['works_' . $this->lang][0]; ?>:</h2>
+				<h2 class="labHeader"><?php echo $this->constants['works_' . $this->lang][0]; ?>:</h2>
 				<br/>
 				<div class="worksLab">
 					<div class="works">
@@ -38,6 +46,7 @@
 								<a  class="workImg" href="/img/works/<?php echo strtolower($this->labInfo[0]['name']); ?>/<?php echo $project['id']; ?>.jpg"><img src="/img/works/<?php echo strtolower($this->labInfo[0]['name']); ?>/<?php echo $project['id']; ?>_small.jpg" width="103px" height="103px"/></a>
 								<span class="title"><?php echo $project['title_' . $this->lang]; ?></span>
 								<span class="year"><?php echo $project['year']; ?></span>
+								<a id="post_link_<?php echo $project['id']; ?>" href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/post/<?php echo $project['post_uri'];?>"></a>
 							</div>
 						<?php endforeach; ?>
 					</div>
@@ -58,14 +67,14 @@
 		<div id="workPreviewImg">
 		
 			<ul id="worksMenu" style="display: none">
-				<li class="active">Лого</li>
-				<li>Поліграфія</li>
-				<li>Сайти</li>
-				<li>Копірайт</li>
-				<li>Відео</li>
-				<li>Порно</li>
-				<li>Пронто</li>
-				<li>Інше</li>
+				<li class="active">Р›РѕРіРѕ</li>
+				<li>РџРѕР»С–РіСЂР°С„С–СЏ</li>
+				<li>РЎР°Р№С‚Рё</li>
+				<li>РљРѕРїС–СЂР°Р№С‚</li>
+				<li>Р’С–РґРµРѕ</li>
+				<li>РџРѕСЂРЅРѕ</li>
+				<li>РџСЂРѕРЅС‚Рѕ</li>
+				<li>Р†РЅС€Рµ</li>
 			</ul>
 
 			<div id="keyboardNav">
@@ -96,6 +105,11 @@
 						<td>				
 							<div id="who">
 							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="details"><a id="postLink" href=""><?php echo $this->constants['more_' . $this->lang][0]; ?></a></div>
 						</td>
 					</tr>
 				<tbody>

@@ -184,7 +184,8 @@ ULABS.onReady (function() {
 					team: document.getElementById ('who'),
 					fade: document.getElementById ('fade'),
 					preview: previewBlock,
-					previewPhoto: dom.getChildNodeById (previewBlock.childNodes, 'big_img')
+					previewPhoto: dom.getChildNodeById (previewBlock.childNodes, 'big_img'),
+					postLink: document.getElementById('postLink')
 			};
 		}
 		
@@ -217,12 +218,15 @@ ULABS.onReady (function() {
 				dom.setTextContent (projectDomObject.customer, projectJsonObject['customer_' + projectJsonObject.lang]);
 				dom.setTextContent (projectDomObject.task, projectJsonObject['task_' + projectJsonObject.lang]);
 				dom.setTextContent (projectDomObject.year, projectJsonObject.year);
+				projectDomObject.postLink.setAttribute ('href', projectJsonObject.postLink);
 				projectDomObject.team.innerHTML = projectJsonObject.teamBlockInnerHtml;	
 			},
 			
-			showPreview = function () {
+			showPreview = function () {			
+				document.getElementById('workPreview').style.top = 
+														ULABS.event.getScrollTopPosition() + 'px';
 				projectDomObject.fade.style.display = 'block'; 
-				projectDomObject.preview.style.display = 'block'; 
+				projectDomObject.preview.style.display = 'block';
 			},
 			
 			clearPreview = function () {
@@ -250,6 +254,7 @@ ULABS.onReady (function() {
 				projectJsonObject.lang = ULABS.dom.getTextContent(document.getElementById('act_lang'));	
 				projectJsonObject.imgSrc = document.getElementById(id).getElementsByTagName('a')[0].getAttribute('href');
 				projectJsonObject.teamBlockInnerHtml = createTeamBlockInnerHtml ();
+				projectJsonObject.postLink = document.getElementById('post_link_' + id).getAttribute('href');
 				printProjectParams ();
 			},
 			
@@ -478,6 +483,20 @@ ULABS.onReady (function() {
 		}
 		
 	}());
+	
+	ULABS.event.getScrollTopPosition = function () {
+		var scrollTop = document.body.scrollTop;
+					
+		if (scrollTop == 0)
+		{
+			if (window.pageYOffset)
+				scrollTop = window.pageYOffset;
+			else
+				scrollTop = (document.body.parentElement) ? document.body.parentElement.scrollTop : 0;
+		}
+		
+		return scrollTop;
+	}
 	
 	ULABS.namespace ('ULABS.ajax');
 	
@@ -732,6 +751,19 @@ ULABS.onReady (function() {
 			);
 			
 			if (document.getElementById('workPreview') != undefined) {
+				ULABS.dom.scrollTopPos = 0;
+				
+				window.onscroll = function () {
+					var scrollTop = ULABS.event.getScrollTopPosition();
+
+					if (scrollTop > ULABS.dom.scrollTopPos) {
+						ULABS.dom.scrollTopPos = scrollTop;
+					} else {
+						document.getElementById('workPreview').style.top = scrollTop + 'px';
+						ULABS.dom.scrollTopPos = scrollTop;
+					}
+				}
+
 				for (var work in ULABS.dom.works) {
 					if (ULABS.dom.works.hasOwnProperty(work)) {
 						ULABS.dom.works[work].onclick = 

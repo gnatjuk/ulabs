@@ -15,14 +15,19 @@
 		<div id="blogHeader"><?php echo $this->constants['blog_title_' . $this->lang][0]; ?></div>
 		<br/>
 		
-		<div id="rss"><?php echo $this->constants['sign_up_' . $this->lang][0]; ?>: 
-			<a href=""><img src="/img/rss1.png"/></a>
-			<a href=""><img src="/img/rss2.png"/></a>
-			<a href=""><img src="/img/rss3.png"/></a>
-			<a href=""><img src="/img/rss4.png"/></a>
+		<div id="search">
+			<form id="search_form" action="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/search/" method="post" >
+				<div id="searchInput">
+					<input id="searchInputField" name="search_query" type="text" value="<?php echo $this->constants['search_' . $this->lang][0]; ?>"/>
+					<input id="default_searchInputField" type="hidden" value="<?php echo $this->constants['search_' . $this->lang][0]; ?>"/>
+				</div>
+				<div id="button"><?php echo $this->constants['find_' . $this->lang][0]; ?></div>
+			</form>
+			<div id="singUp">
+				<a href=""><img src="/img/portfolio_rss_16.jpg"/></a>
+				<a href=""><img src="/img/portfolio_vk_16.jpg"/></a>
+			</div>
 		</div>
-		<div id="search"><form id="search_form" action="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/search/" method="post" ><div id="searchInput"><input id="searchInputField" name="search_query" type="text" value="<?php echo $this->constants['search_' . $this->lang][0]; ?>"/><input id="default_searchInputField" type="hidden" value="<?php echo $this->constants['search_' . $this->lang][0]; ?>"/></div><div id="button"><?php echo $this->constants['find_' . $this->lang][0]; ?></div></form></div>
-		
 		<div id="posts">
 			<?php foreach($this->posts as $post) :?>
 			<div class="post">
@@ -72,9 +77,9 @@
 				<?php endforeach;?>
 			</ul>
 			<br/>
-			<ul class="menu">
+			<ul class="labMenu">
 				<?php foreach($this->labChapters as $chapter):?>
-					<li><a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/chapter/<?php echo $chapter['uri'];?>"><?php echo $chapter['name_' . $this->lang] . ' (' . $chapter['post_count'] . ')'; ?></a></li>
+					<li class="<?php echo strtolower($chapter['lab']); ?>"><a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/chapter/<?php echo $chapter['uri'];?>"><?php echo $chapter['name_' . $this->lang] . ' (' . $chapter['post_count'] . ')'; ?></a></li>
 				<?php endforeach;?>
 			</ul>
 		</div>

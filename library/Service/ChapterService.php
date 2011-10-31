@@ -33,13 +33,14 @@ class Service_ChapterService extends Service_BaseService {
         $where = $this->chapterTable->getAdapter()->quoteInto('type = ?', $type);
         return $this->chapterTable->fetchAll($where)->toArray();
     }
-
+    
     public function getPostCountByChapterId($id) {
         $sql = "SELECT COUNT(id) FROM chapter_post WHERE chapter_id = '$id'";
         $stmt = self::getDb()->query($sql);
         $rs = $stmt->fetchAll();
         return $rs[0]['COUNT(id)'];
     }
+
     
     public function getChapterListByPostId($id){
         $where = $this->chapterPostTable->getAdapter()->quoteInto('post_id = ?', $id);

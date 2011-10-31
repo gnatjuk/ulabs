@@ -28,7 +28,7 @@ class Service_LabService extends Service_BaseService {
     }
 
     public function getLabDescriptionByName($name) {
-        $stmt = self::getDb()->query("SELECT id, name, text_ua, text_en FROM lab WHERE LOWER(name) = '$name'");
+        $stmt = self::getDb()->query("SELECT id, name, title_ua, title_en, text_ua, text_en FROM lab WHERE LOWER(name) = '$name'");
         return $stmt->fetchAll();
     }
     

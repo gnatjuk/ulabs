@@ -44,9 +44,10 @@
 								</div>
 								<?php foreach($lab['projects'] as $project):?>
 									<div class="work" id="<?php echo $project['id']; ?>">
-										<a  class="workImg" href="/img/works/<?php echo strtolower($lab['name']); ?>/<?php echo $project['id']; ?>.jpg"><img src="/img/works/<?php echo strtolower($lab['name']); ?>/<?php echo $project['id']; ?>_small.jpg" width="103px" height="103px"/></a>
+										<a  class="workImg" href="/img/works/<?php echo strtolower($lab['name']); ?>/<?php echo $project['img']; ?>"><img src="/img/works/<?php echo strtolower($lab['name']); ?>/<?php echo $project['img_small']; ?>" width="103px" height="103px"/></a>
 										<span class="title"><?php echo $project['title_' . $this->lang]; ?></span>
 										<span class="year"><?php echo $project['year']; ?></span>
+										<a id="post_link_<?php echo $project['id']; ?>" href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>blog/post/<?php echo $project['post_uri'];?>"></a>
 									</div>
 								<?php endforeach; ?>
 							</div>
@@ -105,6 +106,11 @@
 					<td>				
 						<div id="who">
 						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="details"><a id="postLink" href=""><?php echo $this->constants['more_' . $this->lang][0]; ?></a></div>
 					</td>
 				</tr>
 			<tbody>

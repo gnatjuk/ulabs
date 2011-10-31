@@ -122,6 +122,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
                         array('lang' => 'ua', 'controller' => 'portfolio', 'action' => 'complexworks')
                 )
         );
+        
+        $this->router->addRoute('complexWorksWithFilterWithoutLangRoute', new Zend_Controller_Router_Route('/portfolio/complex-works/:filter',
+                        array('lang' => 'ua', 'controller' => 'portfolio', 'action' => 'complexworksfilter')
+                )
+        );
+
+        $this->router->addRoute('complexWorksWithFilterWithLangRoute', new Zend_Controller_Router_Route(':lang/portfolio/complex-works/:filter',
+                        array('lang' => 'ua', 'controller' => 'portfolio', 'action' => 'complexworksfilter')
+                )
+        );
     }
     
         
@@ -145,6 +155,40 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 
         $this->router->addRoute('adminPageWithLangRoute', new Zend_Controller_Router_Route(':lang/admin/',
                         array('lang' => 'ua', 'controller' => 'admin', 'action' => 'index')
+                )
+        );
+        
+        $this->router->addRoute('adminPageLoginRoute', new Zend_Controller_Router_Route('/admin/login/',
+                        array('controller' => 'admin', 'action' => 'login')
+                )
+        );
+              
+        $this->router->addRoute('adminPageLogoutRoute', new Zend_Controller_Router_Route('/admin/logout/',
+                        array('controller' => 'admin', 'action' => 'logout')
+                )
+        );
+        
+                      
+        $this->router->addRoute('adminPortfolioRoute', new Zend_Controller_Router_Route('/admin/portfolio/',
+                        array('controller' => 'admin', 'action' => 'portfolio')
+                )
+        );
+        
+                      
+        $this->router->addRoute('adminBlogRoute', new Zend_Controller_Router_Route('/admin/blog/',
+                        array('controller' => 'admin', 'action' => 'blog')
+                )
+        );
+        
+                      
+        $this->router->addRoute('adminLabsRoute', new Zend_Controller_Router_Route('/admin/labs',
+                        array('controller' => 'admin', 'action' => 'labs')
+                )
+        );
+        
+        
+        $this->router->addRoute('adminPagesRoute', new Zend_Controller_Router_Route('/admin/pages',
+                        array('controller' => 'admin', 'action' => 'pages')
                 )
         );
     }

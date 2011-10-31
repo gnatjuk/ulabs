@@ -9,66 +9,85 @@
                                  'uri' => $this->uri)); 
         ?>
         <div id="content">
-		<table id="about">
-		<tr>
-		<td>
-			<a id="back" href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>"><?php echo $this->constants['back_to_home_' . $this->lang][0]; ?></a><br/>
-			  <div class="item">
-			  <h1><?php echo $this->constants['about_us_title_' . $this->lang][0]; ?></h1>
-				<p>
-					<?php echo $this->constants['about_us_text_' . $this->lang][0]; ?>
-				</p>
-			  <div class="galery">
-				<?php foreach ($this->galeries as $galery):?>
-					<?php if($galery['page_constant_id'] == $this->constants['about_us_text_id'][0]):?>
-						<a class="galeryElements" rel="galery1" href="/img/galery/<?php echo $galery['name'];?>/<?php echo $galery['img'];?>"><img src="/img/galery/<?php echo $galery['name'];?>/<?php echo $galery['small_img'];?>" alt="" /></a>   
-					<?php endif; ?>
-				<?php endforeach; ?>
-			  </div>
-			  </div>
-			  <div class="item">
-				<h1><?php echo $this->constants['labs_title_' . $this->lang][0]; ?></h1>
-				<p>
-					<?php echo $this->constants['labs_text_' . $this->lang][0]; ?>
-				</p>
-				<a class="ulabsBox" rel="labs" href="/img/galery/labs/labz.png"><img src="/img/galery/labs/labz.jpg" alt="" /></a>
-			  </div>
-			  <div class="item">
-				<h1><?php echo $this->constants['management_title_' . $this->lang][0]; ?></h1>
-				<p>
-					<?php echo $this->constants['management_text_' . $this->lang][0]; ?>
-				</p>
-				<a class="managementBox" rel="management" href="/img/galery/management/Upravlinnya.png"><img src="/img/galery/management/Upravlinnya.jpg" alt="" /></a>
-			  </div>
-			  <div class="item">
-				<h1><?php echo $this->constants['technology_title_' . $this->lang][0]; ?></h1>
-				<p>
-					<?php echo $this->constants['technology_text_' . $this->lang][0]; ?>
-				</p>
-				<a class="technologyBox" rel="technology" href="/img/galery/technology/Tehnologiji.png"><img src="/img/galery/technology/Tehnologiji.jpg" alt="" /></a>
-			  </div>
-			  <div class="item">
-				<h1><?php echo $this->constants['personal_title_' . $this->lang][0]; ?></h1>
-				<p>
-					<?php echo $this->constants['personal_text_' . $this->lang][0]; ?>
-				</p>
-				<a class="personalBox" rel="personal" href="/img/galery/personal/Kadry.png"><img src="/img/galery/personal/Kadry.jpg" alt="" /></a>
-			  </div>  <div class="item">
-				<h1><?php echo $this->constants['dream_title_' . $this->lang][0]; ?></h1>
-				<p>
-					<?php echo $this->constants['dream_text_' . $this->lang][0]; ?></h1>
-				</p>
-				<div class="galery">
-					<?php foreach ($this->galeries as $galery):?>
-						<?php if($galery['page_constant_id'] == $this->constants['dream_text_id'][0]):?>
-							<a class="galeryElements" rel="galery1" href="/img/galery/<?php echo $galery['name'];?>/<?php echo $galery['img'];?>"><img src="/img/galery/<?php echo $galery['name'];?>/<?php echo $galery['small_img'];?>" alt="" /></a>   
-						<?php endif; ?>
-					<?php endforeach; ?>
+			<div id="posts">
+				<table id="about">
+				<tr>
+				<td>
+					<a id="back" href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>"><?php echo $this->constants['back_to_home_' . $this->lang][0]; ?></a><br/>
+					  <br/>
+					  <div class="item">
+					  <h1><?php echo $this->constants['about_us_title_' . $this->lang][0]; ?></h1>
+						<p>
+							<?php echo $this->constants['about_us_text_' . $this->lang][0]; ?>
+						</p>
+					  <!--<div class="galery">
+						<?php foreach ($this->galeries as $galery):?>
+							<?php if($galery['page_constant_id'] == $this->constants['about_us_text_id'][0]):?>
+								<a class="galeryElements" rel="galery1" href="/img/galery/<?php echo $galery['name'];?>/<?php echo $galery['img'];?>"><img src="/img/galery/<?php echo $galery['name'];?>/<?php echo $galery['small_img'];?>" alt="" /></a>   
+							<?php endif; ?>
+						<?php endforeach; ?>
+					  </div>-->
+					  </div>
+					  <div class="item">
+						<h1><?php echo $this->constants['labs_title_' . $this->lang][0]; ?></h1>
+						<p>
+							<?php echo $this->constants['labs_text_' . $this->lang][0]; ?>
+						</p>
+						<!--<a class="ulabsBox" rel="labs" href="/img/galery/labs/labz.png"><img src="/img/galery/labs/labz.jpg" alt="" /></a>-->
+					  </div>
+					  <div class="item">
+						<h1><?php echo $this->constants['management_title_' . $this->lang][0]; ?></h1>
+						<p>
+							<?php echo $this->constants['management_text_' . $this->lang][0]; ?>
+						</p>
+						<!--<a class="managementBox" rel="management" href="/img/galery/management/Upravlinnya.png"><img src="/img/galery/management/Upravlinnya.jpg" alt="" /></a>-->
+					  </div>
+					  <div class="item">
+						<h1><?php echo $this->constants['technology_title_' . $this->lang][0]; ?></h1>
+						<p>
+							<?php echo $this->constants['technology_text_' . $this->lang][0]; ?>
+						</p>
+						<!--<a class="technologyBox" rel="technology" href="/img/galery/technology/Tehnologiji.png"><img src="/img/galery/technology/Tehnologiji.jpg" alt="" /></a>-->
+					  </div>
+					  <div class="item">
+						<h1><?php echo $this->constants['personal_title_' . $this->lang][0]; ?></h1>
+						<p>
+							<?php echo $this->constants['personal_text_' . $this->lang][0]; ?>
+						</p>
+						<!--<a class="personalBox" rel="personal" href="/img/galery/personal/Kadry.png"><img src="/img/galery/personal/Kadry.jpg" alt="" /></a>-->
+					  </div>  <div class="item">
+						<h1><?php echo $this->constants['dream_title_' . $this->lang][0]; ?></h1>
+						<p>
+							<?php echo $this->constants['dream_text_' . $this->lang][0]; ?></h1>
+						</p>
+						<!--<div class="galery">
+							<?php foreach ($this->galeries as $galery):?>
+								<?php if($galery['page_constant_id'] == $this->constants['dream_text_id'][0]):?>
+									<a class="galeryElements" rel="galery1" href="/img/galery/<?php echo $galery['name'];?>/<?php echo $galery['img'];?>"><img src="/img/galery/<?php echo $galery['name'];?>/<?php echo $galery['small_img'];?>" alt="" /></a>   
+								<?php endif; ?>
+							<?php endforeach; ?>
+						</div>-->
+					  </div>
+					</td>
+					</tr>
+					</table>
 				</div>
-			  </div>
-			</td>
-			</tr>
-			</table>
+				<div id="links" style="left: 620px;">
+					<div id="button"><?php echo $this->constants['about_services_' . $this->lang][0]; ?></div>
+					<div id="singUp">
+						<a href=""><img src="/img/pdf_ico.png"/></a>
+						<a href=""><img src="/img/docs_16.png"/></a>
+					</div>
+				</div>
+				<div id="rightMenu" style="width: 300px; left: 620px;">
+					<h2 class="labHeader"><?php echo $this->constants['labs_' . $this->lang][0]; ?>:</h2>
+					<br/>
+					<ul class="labMenu">
+					<?php foreach ($this->labs as $lab):?>
+						<li class="<?php echo strtolower($lab['name']); ?>"><a href="/<?php echo ($this->lang == 'ua' ? '' : $this->lang . '/'); ?>lab/<?php echo strtolower($lab['name']); ?>"><?php echo $lab['title_' . $this->lang]; ?></a></li>
+					<?php endforeach; ?>
+					</ul>
+				</div>
         </div>
         <?php echo $this->partial('partials/footer.phtml'); ?>
 
